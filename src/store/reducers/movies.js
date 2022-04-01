@@ -16,6 +16,7 @@ const moviesSlice = createSlice({
     },
     deleteMovie(state, { payload: movieToDelete }) {
       const list = state.list.filter((movie) => movie.id !== movieToDelete.id);
+      // Une fois le films supprimé, on virifi si il reste un film de la meme catégorie, si ce n'est le cas on supprime la catégorie de liste des catégories selectionnées
       const isStillThereAMovieOfTheDeletedMovieCategory = list.filter(
         (movie) => movie.category === movieToDelete.category
       );
@@ -28,6 +29,7 @@ const moviesSlice = createSlice({
       return { ...state, selectedCategories, list };
     },
     likeMovie(state, { payload: movieId }) {
+      //Si on a déjà liké, on enlève le like
       if (state.likes.includes(movieId)) {
         const likes = state.likes.filter((id) => id !== movieId);
         const list = state.list.map((movie) => {
@@ -41,6 +43,7 @@ const moviesSlice = createSlice({
       } else {
         const likes = [...state.likes, movieId];
         let dislikes = [...state.dislikes];
+        //On vérifi qu'on a pas déjà disliker le film, si c'est le cas alors on enlève le dislike tout en ajoutant le like
         const list = state.list.map((movie) => {
           if (movie.id === movieId) {
             const updatedMovie = { ...movie, likes: movie.likes + 1 };
@@ -56,6 +59,7 @@ const moviesSlice = createSlice({
       }
     },
     dislikeMovie(state, { payload: movieId }) {
+      //Meme logique que pour le "like"
       if (state.dislikes.includes(movieId)) {
         const dislikes = state.dislikes.filter((id) => id !== movieId);
         const list = state.list.map((movie) => {

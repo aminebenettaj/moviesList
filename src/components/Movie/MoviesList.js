@@ -24,6 +24,7 @@ const MoviesList = () => {
   const [moviesByCategories, setMoviesByCategories] = useState([]);
   const [moviesToList, setMoviesToList] = useState([]);
 
+  //On récupére les données et on initie le store redux
   useEffect(() => {
     moviesJson
       .then((response) => {
@@ -34,6 +35,7 @@ const MoviesList = () => {
       });
   }, [dispatch]);
 
+  //On refiltre les films a chaque fois que la liste a été modifié ou que les catégories selectionnées ont changé
   useEffect(() => {
     if (selectedCategories.length === 0) {
       setMoviesByCategories(moviesData);
@@ -48,6 +50,7 @@ const MoviesList = () => {
     }
   }, [moviesData, selectedCategories]);
 
+  //On cherche les films a afficher pour la page actuelle
   useEffect(() => {
     const totallyFiltredMovies = moviesByCategories.slice(
       currentRange * (currentPage - 1),

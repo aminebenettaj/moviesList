@@ -12,6 +12,7 @@ const CategoriesFilter = () => {
     (state) => state.movies.selectedCategories
   );
 
+  // On crée une liste de catégorie compatible avec le plugin de filtrage
   const formatCategoriesOptions = () => {
     const addedCategories = [];
     const categoriesOptions = [];
