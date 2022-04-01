@@ -119,22 +119,25 @@ main {
 .pagination {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: end;
 }
 
 @media (max-width: 600px) {
   .pagination > div {
     width: 100%;
   }
+  .pagination .pages-list ul {
+    justify-content: center;
+  }
 }
 .pagination .pages-list {
+  flex-grow: 1;
   margin-bottom: 30px;
 }
 .pagination .pages-list ul {
   padding: 0;
   list-style: none;
   display: flex;
-  justify-content: center;
   margin: 0 -6px;
 }
 .pagination .pages-list ul li {
