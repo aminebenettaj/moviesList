@@ -20,13 +20,13 @@ const moviesSlice = createSlice({
       const isStillThereAMovieOfTheDeletedMovieCategory = list.filter(
         (movie) => movie.category === movieToDelete.category
       );
-      const selectedCategories =
-        isStillThereAMovieOfTheDeletedMovieCategory.length === 0
-          ? state.selectedCategories.filter(
-              (category) => category.label !== movieToDelete.category
-            )
-          : [...state.selectedCategories];
-      return { ...state, selectedCategories, list };
+      if (isStillThereAMovieOfTheDeletedMovieCategory.length === 0) {
+        const selectedCategories = state.selectedCategories.filter(
+          (category) => category.label !== movieToDelete.category
+        );
+        return { ...state, selectedCategories, list };
+      }
+      return { ...state, list };
     },
     likeMovie(state, { payload: movieId }) {
       //Si on a déjà liké, on enlève le like
@@ -34,19 +34,22 @@ const moviesSlice = createSlice({
         const likes = state.likes.filter((id) => id !== movieId);
         const list = state.list.map((movie) => {
           if (movie.id === movieId) {
-            const updatedMovie = { ...movie, likes: movie.likes - 1 };
+            const updatedMovie = { ...movie };
+            updatedMovie.likes--;
             return updatedMovie;
           }
           return movie;
         });
         return { ...state, likes, list };
       } else {
-        const likes = [...state.likes, movieId];
+        const likes = [...state.likes];
+        likes.push(movieId);
         let dislikes = [...state.dislikes];
         //On vérifi qu'on a pas déjà disliker le film, si c'est le cas alors on enlève le dislike tout en ajoutant le like
         const list = state.list.map((movie) => {
           if (movie.id === movieId) {
-            const updatedMovie = { ...movie, likes: movie.likes + 1 };
+            const updatedMovie = { ...movie };
+            updatedMovie.likes++;
             if (dislikes.includes(movieId)) {
               updatedMovie.dislikes--;
               dislikes = dislikes.filter((id) => id !== movieId);
@@ -64,18 +67,21 @@ const moviesSlice = createSlice({
         const dislikes = state.dislikes.filter((id) => id !== movieId);
         const list = state.list.map((movie) => {
           if (movie.id === movieId) {
-            const updatedMovie = { ...movie, dislikes: movie.dislikes - 1 };
+            const updatedMovie = { ...movie };
+            updatedMovie.dislikes--;
             return updatedMovie;
           }
           return movie;
         });
         return { ...state, dislikes, list };
       } else {
-        const dislikes = [...state.dislikes, movieId];
+        const dislikes = [...state.dislikes];
+        dislikes.push(movieId);
         let likes = [...state.likes];
         const list = state.list.map((movie) => {
           if (movie.id === movieId) {
-            const updatedMovie = { ...movie, dislikes: movie.dislikes + 1 };
+            const updatedMovie = { ...movie };
+            updatedMovie.dislikes++;
             if (likes.includes(movieId)) {
               updatedMovie.likes--;
               likes = likes.filter((id) => id !== movieId);

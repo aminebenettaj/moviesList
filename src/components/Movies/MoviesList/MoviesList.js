@@ -45,9 +45,9 @@ const MoviesList = () => {
       const selectedCategoriesValues = Object.keys(selectedCategories).map(
         (key) => selectedCategories[key].value
       );
-      const filteredMovies = moviesData.filter((movie) => {
-        return selectedCategoriesValues.includes(movie.category);
-      });
+      const filteredMovies = moviesData.filter((movie) =>
+        selectedCategoriesValues.includes(movie.category)
+      );
       setMoviesByCategories(filteredMovies);
     }
   }, [moviesData, selectedCategories]);
@@ -64,7 +64,7 @@ const MoviesList = () => {
   return (
     <>
       <CategoriesFilter />
-      <div className="movies-list">
+      <div className="movies-list-container">
         {moviesToList.map((movie) => {
           return <MoviesItem key={movie.id} movie={movie} />;
         })}
