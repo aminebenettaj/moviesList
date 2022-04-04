@@ -1,8 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import { moviesActions } from "../../store/reducers/movies";
+import { moviesActions } from "../../../store/reducers/movies";
 
-const MovieItem = ({ movie }) => {
+import "./MoviesItem.css";
+
+const MoviesItem = ({ movie }) => {
   const dispatch = useDispatch();
 
   const isLiked = useSelector((state) => state.movies.likes.includes(movie.id));
@@ -23,13 +25,13 @@ const MovieItem = ({ movie }) => {
   };
 
   return (
-    <div className="movie-item">
-      <div className="movie-card">
-        <h2>{movie.title}</h2>
-        <p>{movie.category}</p>
-        <div className="actions">
-          <div className="likes">
-            <div className="like">
+    <div className="movie-item-container">
+      <div className="movie-item-card">
+        <h2 className="movie-item-title">{movie.title}</h2>
+        <p className="movie-item-category">{movie.category}</p>
+        <div className="movie-item-actions">
+          <div className="movie-item-likes">
+            <div className="likes-count">
               <div className="count">{movie.likes}</div>
               <div>
                 <i
@@ -38,7 +40,7 @@ const MovieItem = ({ movie }) => {
                 ></i>
               </div>
             </div>
-            <div className="deslike">
+            <div className="deslikes-count">
               <div className="count">{movie.dislikes}</div>
               <div>
                 <i
@@ -61,4 +63,4 @@ const MovieItem = ({ movie }) => {
   );
 };
 
-export default MovieItem;
+export default MoviesItem;

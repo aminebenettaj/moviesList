@@ -1,0 +1,11 @@
+.categories-filter-container {
+  margin-bottom: 30px;
+}
+.categories-filter-select {
+  -webkit-box-shadow: 2px 2px 15px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 2px 2px 15px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 10px !important;
+}
+.categories-filter-select > div {
+  border: none !important;
+}

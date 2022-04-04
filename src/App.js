@@ -4,7 +4,7 @@ import store from "./store";
 
 import "./App.css";
 
-import MoviesList from "./components/Movie/MoviesList";
+import MoviesList from "./components/Movies/MoviesList/MoviesList";
 import Header from "./components/Header/Header";
 
 const App = () => {

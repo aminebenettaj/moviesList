@@ -1,0 +1,11 @@
+header {
+  background-color: #4b7bec;
+  color: white;
+  text-align: center;
+  padding: 12px 0;
+  -webkit-box-shadow: 2px 2px 15px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 2px 2px 15px 0px rgba(0, 0, 0, 0.15);
+}
+header h1 {
+  margin: 0;
+}

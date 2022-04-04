@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import { moviesActions } from "../../store/reducers/movies";
+import { moviesActions } from "../../../store/reducers/movies";
+
+import "./Pagination.css";
 
 const Pagination = ({ moviesLength }) => {
   const dispatch = useDispatch();
@@ -35,9 +37,9 @@ const Pagination = ({ moviesLength }) => {
   const pagesList = getPagesList();
 
   return (
-    <div className="pagination">
+    <div className="pagination-container">
       {pagesList.length > 1 && (
-        <div className="pages-list">
+        <div className="pagination-pages-list">
           <ul>
             <li>
               <button

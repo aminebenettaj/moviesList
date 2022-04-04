@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { moviesActions } from "../../store/reducers/movies";
+import { moviesActions } from "../../../store/reducers/movies";
 
-import MovieItem from "./MovieItem";
-import CategoriesFilter from "../UI/CategoriesFilter";
-import Pagination from "../UI/Pagination";
+import MoviesItem from "../MoviesItem/MoviesItem";
+import CategoriesFilter from "../../UI/CategoriesFilter/CategoriesFilter";
+import Pagination from "../../UI/Pagination/Pagination";
 
-import { movies$ as moviesJson } from "../../data/movies";
+import { movies$ as moviesJson } from "../../../data/movies";
+
+import "./MoviesList.css";
 
 const MoviesList = () => {
   const dispatch = useDispatch();
@@ -64,7 +66,7 @@ const MoviesList = () => {
       <CategoriesFilter />
       <div className="movies-list">
         {moviesToList.map((movie) => {
-          return <MovieItem key={movie.id} movie={movie} />;
+          return <MoviesItem key={movie.id} movie={movie} />;
         })}
       </div>
       <Pagination moviesLength={moviesByCategories.length} />

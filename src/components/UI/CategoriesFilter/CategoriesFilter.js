@@ -1,8 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import { moviesActions } from "../../store/reducers/movies";
+import { moviesActions } from "../../../store/reducers/movies";
 
 import { MultiSelect } from "react-multi-select-component";
+
+import "./CategoriesFilter.css";
 
 const CategoriesFilter = () => {
   const dispatch = useDispatch();
@@ -33,7 +35,7 @@ const CategoriesFilter = () => {
   };
 
   return (
-    <div className="categories-filter">
+    <div className="categories-filter-container">
       <MultiSelect
         overrideStrings={{
           allItemsAreSelected: "Toutes les catégories sont sélectionnées",
