@@ -62,7 +62,6 @@ const moviesSlice = createSlice({
       }
     },
     dislikeMovie(state, { payload: movieId }) {
-      //Meme logique que pour le "like"
       if (state.dislikes.includes(movieId)) {
         const dislikes = state.dislikes.filter((id) => id !== movieId);
         const list = state.list.map((movie) => {

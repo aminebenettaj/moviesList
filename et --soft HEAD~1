@@ -1,0 +1,35 @@
+[33mcommit ff158eff6ced4ef1384c31310e7baf197d28c7ae[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Amine Benetta <benettajamine@gmail.com>
+Date:   Mon Apr 4 14:07:28 2022 +0000
+
+    Suppression des expressions ternaires et amélioration de la lisibilité du code
+
+[33mcommit 123547c965da4d18fc9e133f58cd6bda0f8341b6[m
+Author: Amine Benetta <benettajamine@gmail.com>
+Date:   Mon Apr 4 14:03:03 2022 +0000
+
+    Suppression des expressions ternaires et amélioration de la lisibilité
+
+[33mcommit 6275af88cf162cb3fc391bb3c8376a333f6c87a9[m
+Author: Amine Benetta <benettajamine@gmail.com>
+Date:   Mon Apr 4 13:27:25 2022 +0000
+
+    Modifications sur le CSS
+
+[33mcommit e3b76a6c0b5eed66352c6bd6efca1976c238f01a[m
+Author: Amine Benetta <benettajamine@gmail.com>
+Date:   Fri Apr 1 14:55:27 2022 +0000
+
+    Ajout de fonctionnalités
+
+[33mcommit c8985b934a05321ef8d6ec81677f506715906ba9[m
+Author: Amine Benetta <benettajamine@gmail.com>
+Date:   Fri Apr 1 14:22:10 2022 +0000
+
+    Ajout de fonctionnalités
+
+[33mcommit 3776a8f17c5aa6577ad5d770400bc1d24669c54d[m
+Author: Amine Benetta <benettajamine@gmail.com>
+Date:   Fri Apr 1 14:14:28 2022 +0000
+
+    first commit
