@@ -34,8 +34,7 @@ const moviesSlice = createSlice({
         const likes = state.likes.filter((id) => id !== movieId);
         const list = state.list.map((movie) => {
           if (movie.id === movieId) {
-            const updatedMovie = { ...movie };
-            updatedMovie.likes--;
+            const updatedMovie = { ...movie, likes: movie.likes - 1 };
             return updatedMovie;
           }
           return movie;
@@ -48,10 +47,9 @@ const moviesSlice = createSlice({
         //On vérifi qu'on a pas déjà disliker le film, si c'est le cas alors on enlève le dislike tout en ajoutant le like
         const list = state.list.map((movie) => {
           if (movie.id === movieId) {
-            const updatedMovie = { ...movie };
-            updatedMovie.likes++;
+            const updatedMovie = { ...movie, likes: movie.likes + 1 };
             if (dislikes.includes(movieId)) {
-              updatedMovie.dislikes--;
+              updatedMovie.dislikes -= 1;
               dislikes = dislikes.filter((id) => id !== movieId);
             }
             return updatedMovie;
@@ -66,8 +64,7 @@ const moviesSlice = createSlice({
         const dislikes = state.dislikes.filter((id) => id !== movieId);
         const list = state.list.map((movie) => {
           if (movie.id === movieId) {
-            const updatedMovie = { ...movie };
-            updatedMovie.dislikes--;
+            const updatedMovie = { ...movie, dislikes: movie.dislikes - 1 };
             return updatedMovie;
           }
           return movie;
@@ -79,10 +76,9 @@ const moviesSlice = createSlice({
         let likes = [...state.likes];
         const list = state.list.map((movie) => {
           if (movie.id === movieId) {
-            const updatedMovie = { ...movie };
-            updatedMovie.dislikes++;
+            const updatedMovie = { ...movie, dislikes: movie.dislikes + 1 };
             if (likes.includes(movieId)) {
-              updatedMovie.likes--;
+              updatedMovie.likes -= 1;
               likes = likes.filter((id) => id !== movieId);
             }
             return updatedMovie;
